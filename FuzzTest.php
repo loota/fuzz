@@ -17,8 +17,12 @@ final class FuzzTest extends TestCase
     }
 
     public function fooProvider(): array {
+      $values = [];
+      for ($i=0; $i<3; $i++) {
+        $values[] = fuzz();
+      }
       return [
-        [fuzz()]
+        $values
       ];
     }
 }
